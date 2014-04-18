@@ -190,10 +190,15 @@ DJANGO_APPS = (
     # Admin panel and documentation:
     'django.contrib.admin',
     # 'django.contrib.admindocs',
+    'crispy_forms',
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'auth',
+    'songs',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

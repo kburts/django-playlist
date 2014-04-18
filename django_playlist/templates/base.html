@@ -1,5 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -46,6 +48,19 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+
+              {% if user.is_authenticated %}
+                <li> <a href="/polls/user/{{ user.username }}/">{{ user.username }}</a> </li>
+                <li> <a href="{% url 'logout' %}">Logout</a> </li>
+              {% else %}
+                <li> <a href="{% url 'register' %}">Register</a> </li>
+                <li> <a href="{% url 'login' %}">Login</a> </li>
+              {% endif %}
+            </li>
+          </ul>
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>

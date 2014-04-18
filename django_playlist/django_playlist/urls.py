@@ -9,7 +9,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='base.html')),
-
+    url(r'^songs/', include('songs.urls')),
+    url(r'^auth/', include('auth.urls')),
     # Examples:
     # url(r'^$', 'django_playlist.views.home', name='home'),
     # url(r'^django_playlist/', include('django_playlist.foo.urls')),
