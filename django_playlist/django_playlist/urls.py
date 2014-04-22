@@ -3,14 +3,24 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic import TemplateView
 
+from rest_framework import routers
+from songs import views
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='base.html')),
     url(r'^songs/', include('songs.urls')),
     url(r'^auth/', include('auth.urls')),
+
+    url(r'^router/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # Examples:
     # url(r'^$', 'django_playlist.views.home', name='home'),
     # url(r'^django_playlist/', include('django_playlist.foo.urls')),

@@ -190,10 +190,17 @@ DJANGO_APPS = (
     # Admin panel and documentation:
     'django.contrib.admin',
     # 'django.contrib.admindocs',
-    'crispy_forms',
+    # 'crispy_forms',
+    'rest_framework',
 )
 
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+#CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGINATE_BY': 10
+}
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
