@@ -1,19 +1,35 @@
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from .serializers import UserSerializer, GroupSerializer
+from rest_framework import generics, permissions
+from .models import Playlist, Song
+from .serializers import PlaylistSerializer, SongSerializer
+from django.shortcuts import render
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class PlaylistList(generics.ListCreateAPIView):
+    model = Playlist
+    serializer_class = PlaylistSerializer
+    permission_classes = [
+        permissions.AllowAny
+    ]
 
+class PlaylistDetail(generics.RetrieveAPIView):
+	model = Playlist
+	serializer_class = PlaylistSerializer
+	lookup_url_kwarg = 'question_pk'
+	permission_classes = [
+		permissions.AllowAny
+	]
 
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+class SongUpdate(generics.UpdateAPIView):
+	model = Song
+	serializer_class = SongSerializer
+	lookup_url_kwarg = 'choice_pk'
+	permission_classes = [
+		permissions.AllowAny
+	]
+
+class SongList(generics.ListCreateAPIView):
+    model = Song
+    serializer_class = SongSerializer
+    permission_classes = [
+        permissions.AllowAny
+    ]

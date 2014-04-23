@@ -19,4 +19,4 @@ class Song(models.Model):
     url = models.URLField(max_length=200)
 
     def __unicode__(self):
-        return (self.name + " - " + self.artist)
+        return self.name
