@@ -14,7 +14,7 @@ class PlaylistList(generics.ListCreateAPIView):
 class PlaylistDetail(generics.RetrieveAPIView):
 	model = Playlist
 	serializer_class = PlaylistSerializer
-	lookup_url_kwarg = 'question_pk'
+	lookup_url_kwarg = 'playlist_pk'
 	permission_classes = [
 		permissions.AllowAny
 	]
@@ -22,7 +22,7 @@ class PlaylistDetail(generics.RetrieveAPIView):
 class SongUpdate(generics.UpdateAPIView):
 	model = Song
 	serializer_class = SongSerializer
-	lookup_url_kwarg = 'choice_pk'
+	lookup_url_kwarg = 'song_pk'
 	permission_classes = [
 		permissions.AllowAny
 	]
@@ -33,3 +33,20 @@ class SongList(generics.ListCreateAPIView):
     permission_classes = [
         permissions.AllowAny
     ]
+
+'''
+class PlaylistCreateReadView(ListCreateAPIView):
+    model = Playlist
+
+
+class PlaylistReadUpdateDeleteView(RetrieveUpdateDestroyAPIView):
+    model = Playlist
+
+
+class SongCreateReadView(ListCreateAPIView):
+    model = Song
+
+
+class SongReadUpdateDeleteView(RetrieveUpdateDestroyAPIView):
+    model = Song
+'''

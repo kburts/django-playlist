@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 
 from auth.models import User
 # Create your models here.
+
 
 class Playlist(models.Model):
     title = models.CharField(max_length=200)
@@ -11,6 +13,7 @@ class Playlist(models.Model):
 
     def __unicode__(self):
         return self.title
+
 
 class Song(models.Model):
     name = models.CharField(max_length=200)

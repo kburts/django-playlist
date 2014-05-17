@@ -20,6 +20,7 @@ class PlaylistAdmin(admin.ModelAdmin):
     '''
     fieldsets = [
         (None,               {'fields': ['title']}),
+        ('User information', {'fields': ['user']}),
         ('Date information', {'fields': ['creation_date'], 'classes': ['collapse']}),
     ]
     inlines = [SongInline]
