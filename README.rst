@@ -1,5 +1,5 @@
 ========================
-django-tplaylist
+django-playlist
 ========================
 
 A project based on the twoscoops template for Django 1.6.
